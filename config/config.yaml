@@ -1,0 +1,25 @@
+pipeline:
+  name: "ecommerce-data-engineering-pipeline"
+  version: "1.0.0"
+
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  logs_dir: "logs"
+
+s3:
+  bucket_name: "my-ecommerce-data-lake-bucket"
+  raw_prefix: "ecommerce/raw"
+  processed_prefix: "ecommerce/processed"
+
+postgres:
+  host: "localhost"
+  port: 5432
+  database: "ecommerce_dw"
+  schema: "public"
+
+validation:
+  allow_null_customer_name: false
+  allow_null_product_price: false
+  min_quantity: 1
+  min_price: 0.01
